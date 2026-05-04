@@ -4,7 +4,8 @@ if (hero) {
     const layers = hero.querySelectorAll('[data-depth]');
     const layerData = Array.from(layers, (layer) => ({
         element: layer,
-        depth: Number(layer.dataset.depth)
+        depth: Number(layer.dataset.depth),
+        offsetY: Number(layer.dataset.offsetY || 0)
     }));
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const narrowQuery = window.matchMedia('(max-width: 1000px)');
@@ -26,8 +27,8 @@ if (hero) {
     const render = () => {
         current += (target - current) * 0.055;
 
-        layerData.forEach(({ element, depth }) => {
-            const y = current * depth * scrollPower;
+        layerData.forEach(({ element, depth, offsetY }) => {
+            const y = offsetY + current * depth * scrollPower;
 
             element.style.transform = narrowQuery.matches
                 ? `translateY(${y}px)`

@@ -143,14 +143,132 @@ img {
 
 .hero__logo {
     position: absolute;
-    left: 53%;
-    bottom: -6.8%;
+    left: 49%;
+    bottom: 0.2%;
     z-index: 8;
-    width: 40%;
+    width: 34%;
     height: auto;
     transform: translateX(-50%) rotate(-4deg);
     user-select: none;
     pointer-events: none;
+}
+
+.facebook-ticker {
+    position: absolute;
+    left: 0.4%;
+    bottom: -2.6%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    width: 22%;
+    min-width: 360px;
+    height: 50px;
+    overflow: hidden;
+    background: #ffdf00;
+    color: #050042;
+    text-decoration: none;
+}
+
+.facebook-ticker__icon {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 100%;
+}
+
+.facebook-ticker__icon img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+
+.facebook-ticker__viewport {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.facebook-ticker__track {
+    display: flex;
+    width: max-content;
+    animation: facebookTicker 7s linear infinite;
+}
+
+.facebook-ticker__text {
+    flex: 0 0 auto;
+    padding-right: 38px;
+    font-family: Impact, "Arial Black", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+@keyframes facebookTicker {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.333%);
+    }
+}
+
+.scroll-down {
+    position: absolute;
+    right: 4.7%;
+    bottom: 5.2%;
+    z-index: 10;
+    display: grid;
+    justify-items: center;
+    gap: 34px;
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.scroll-down__text {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: Impact, "Arial Black", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.08em;
+}
+
+.scroll-down__word {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.scroll-down__word:last-child {
+    align-self: flex-end;
+}
+
+.scroll-down__arrow-wrap {
+    display: block;
+    width: 96px;
+    animation: scrollArrowDown 0.85s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+.scroll-down__arrow {
+    width: 100%;
+    height: auto;
+    transform: rotate(90deg);
+}
+
+@keyframes scrollArrowDown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(18px);
+    }
 }
 
 @media (max-width: 700px) {
@@ -193,5 +311,42 @@ img {
     .hero__logo {
         bottom: 7.8%;
         width: 58%;
+    }
+
+    .facebook-ticker {
+        left: 0;
+        bottom: 10%;
+        width: 72%;
+        min-width: 0;
+        height: 42px;
+    }
+
+    .facebook-ticker__icon {
+        width: 44px;
+    }
+
+    .facebook-ticker__icon img {
+        width: 17px;
+        height: 17px;
+    }
+
+    .facebook-ticker__text {
+        padding-right: 28px;
+        font-size: 24px;
+    }
+
+    .scroll-down {
+        right: 5%;
+        bottom: 5%;
+        gap: 24px;
+    }
+
+    .scroll-down__text {
+        font-size: 20px;
+        gap: 6px;
+    }
+
+    .scroll-down__arrow-wrap {
+        width: 64px;
     }
 }
