@@ -2,10 +2,17 @@ const hero = document.querySelector('.js-hero-parallax');
 
 if (hero) {
     const layers = hero.querySelectorAll('[data-depth]');
+    const layerData = Array.from(layers, (layer) => ({
+        element: layer,
+        depth: Number(layer.dataset.depth)
+    }));
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const scrollPower = 10;
+    const narrowQuery = window.matchMedia('(max-width: 1000px)');
+    const scrollPower = 14;
     let target = 0;
     let current = 0;
+    let frameId = null;
+    let targetFrameId = null;
 
     const setTarget = () => {
         const rect = hero.getBoundingClientRect();
@@ -17,22 +24,43 @@ if (hero) {
     };
 
     const render = () => {
-        current += (target - current) * 0.08;
+        current += (target - current) * 0.055;
 
-        layers.forEach((layer) => {
-            const depth = Number(layer.dataset.depth);
+        layerData.forEach(({ element, depth }) => {
             const y = current * depth * scrollPower;
 
-            layer.style.transform = `translate3d(0, ${y}px, 0)`;
+            element.style.transform = narrowQuery.matches
+                ? `translateY(${y}px)`
+                : `translate3d(0, ${y}px, 0)`;
         });
 
-        requestAnimationFrame(render);
+        if (Math.abs(target - current) > 0.001) {
+            frameId = requestAnimationFrame(render);
+        } else {
+            current = target;
+            frameId = null;
+        }
+    };
+
+    const requestRender = () => {
+        if (targetFrameId !== null) {
+            return;
+        }
+
+        targetFrameId = requestAnimationFrame(() => {
+            targetFrameId = null;
+            setTarget();
+
+            if (frameId === null) {
+                frameId = requestAnimationFrame(render);
+            }
+        });
     };
 
     if (!mediaQuery.matches) {
-        window.addEventListener('scroll', setTarget, { passive: true });
-        window.addEventListener('resize', setTarget);
-        setTarget();
-        render();
+        window.addEventListener('scroll', requestRender, { passive: true });
+        window.addEventListener('resize', requestRender);
+        narrowQuery.addEventListener('change', requestRender);
+        requestRender();
     }
 }
