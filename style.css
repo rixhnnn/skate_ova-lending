@@ -1,0 +1,104 @@
+html {
+    background: #3f2095;
+}
+
+body {
+    min-width: 320px;
+    background: #3f2095;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.page {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    background: #3f2095;
+    overflow: hidden;
+    padding-top: 24px;
+}
+
+.hero__wrapper {
+    position: relative;
+    width: min(96vw, 1800px);
+    min-width: 320px;
+    aspect-ratio: 1800 / 1903;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero__bg,
+.hero__layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+}
+
+.hero__bg {
+    position: relative;
+    z-index: 0;
+    object-fit: cover;
+}
+
+.hero__layer {
+    object-fit: cover;
+    will-change: transform;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero__lame {
+    z-index: 1;
+    object-fit: cover;
+}
+
+.hero__lame--middle {
+    z-index: 4;
+}
+
+.hero__lame--front,
+.hero__lame--small {
+    z-index: 9;
+}
+
+.hero__character {
+    z-index: 2;
+}
+
+.hero__character--joe,
+.hero__character--miya,
+.hero__character--cherry,
+.hero__shadow {
+    transform-origin: center bottom;
+}
+
+.hero__shadow {
+    z-index: 3;
+}
+
+.hero__main {
+    z-index: 6;
+}
+
+@media (max-width: 700px) {
+    .hero {
+        align-items: stretch;
+    }
+
+    .hero__wrapper {
+        width: 100vw;
+    }
+}
