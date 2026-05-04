@@ -19,6 +19,44 @@ img {
     overflow: hidden;
 }
 
+.burger {
+    position: fixed;
+    top: 48px;
+    right: 54px;
+    z-index: 20;
+    display: inline-grid;
+    justify-items: center;
+    gap: 16px;
+    border: 0;
+    background: transparent;
+    color: #fc2960;
+    cursor: pointer;
+    font: inherit;
+}
+
+.burger__lines {
+    display: flex;
+    flex-direction: column;
+    justify-self: stretch;
+    gap: 16px;
+    width: 100%;
+}
+
+.burger__line {
+    display: block;
+    width: 100%;
+    height: 8px;
+    background: currentColor;
+}
+
+.burger__text {
+    font-family: Impact, "Arial Black", Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.08em;
+}
+
 .hero {
     display: flex;
     align-items: flex-start;
@@ -94,6 +132,24 @@ img {
 }
 
 @media (max-width: 700px) {
+    .burger {
+        top: 28px;
+        right: 24px;
+        gap: 10px;
+    }
+
+    .burger__lines {
+        gap: 10px;
+    }
+
+    .burger__line {
+        height: 7px;
+    }
+
+    .burger__text {
+        font-size: 24px;
+    }
+
     .hero {
         align-items: stretch;
     }
