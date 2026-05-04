@@ -3,6 +3,7 @@ const hero = document.querySelector('.js-hero-parallax');
 if (hero) {
     const layers = hero.querySelectorAll('[data-depth]');
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const scrollPower = 10;
     let target = 0;
     let current = 0;
 
@@ -20,7 +21,7 @@ if (hero) {
 
         layers.forEach((layer) => {
             const depth = Number(layer.dataset.depth);
-            const y = current * depth;
+            const y = current * depth * scrollPower;
 
             layer.style.transform = `translate3d(0, ${y}px, 0)`;
         });
