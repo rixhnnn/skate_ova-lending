@@ -69,15 +69,42 @@ if (hero) {
 const revealSections = document.querySelectorAll('.js-reveal-section');
 
 if (revealSections.length) {
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            entry.target.classList.toggle('is-visible', entry.isIntersecting);
-        });
-    }, {
-        threshold: 0.28
-    });
+    let lastScrollY = window.scrollY;
+    let revealFrameId = null;
 
-    revealSections.forEach((section) => {
-        revealObserver.observe(section);
-    });
+    const updateRevealSections = () => {
+        const currentScrollY = window.scrollY;
+        const isScrollingUp = currentScrollY < lastScrollY;
+        const viewportHeight = window.innerHeight;
+
+        revealSections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const shouldOpen = rect.top < viewportHeight * 0.72 && rect.bottom > viewportHeight * 0.18;
+            const shouldCloseOnScrollUp = isScrollingUp && rect.top > viewportHeight * 0.34;
+            const shouldCloseAfterSection = !isScrollingUp && rect.bottom < viewportHeight * 0.18;
+
+            if (shouldOpen && !shouldCloseOnScrollUp) {
+                section.classList.add('is-visible');
+            }
+
+            if (shouldCloseOnScrollUp || shouldCloseAfterSection) {
+                section.classList.remove('is-visible');
+            }
+        });
+
+        lastScrollY = currentScrollY;
+        revealFrameId = null;
+    };
+
+    const requestRevealUpdate = () => {
+        if (revealFrameId !== null) {
+            return;
+        }
+
+        revealFrameId = requestAnimationFrame(updateRevealSections);
+    };
+
+    window.addEventListener('scroll', requestRevealUpdate, { passive: true });
+    window.addEventListener('resize', requestRevealUpdate);
+    requestRevealUpdate();
 }

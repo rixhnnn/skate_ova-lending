@@ -70,7 +70,12 @@
 
         <section class="news-section js-reveal-section" aria-labelledby="news-title">
             <div class="news-section__inner">
-                <h2 class="news-section__title" id="news-title">NEWS</h2>
+                <h2 class="news-section__title" id="news-title" aria-label="NEWS">
+                    <span class="news-section__title-letter" aria-hidden="true">N</span>
+                    <span class="news-section__title-letter" aria-hidden="true">E</span>
+                    <span class="news-section__title-letter" aria-hidden="true">W</span>
+                    <span class="news-section__title-letter" aria-hidden="true">S</span>
+                </h2>
 
                 <div class="news-section__content">
                     <ul class="news-list">
@@ -81,7 +86,7 @@
                                 <span class="news-list__arrow" aria-hidden="true">›</span>
                             </a>
                         </li>
-                        <li class="news-list__item news-list__item--accent">
+                        <li class="news-list__item">
                             <a class="news-list__link" href="#">
                                 <time class="news-list__date" datetime="2021-03-29">03.29.2021</time>
                                 <span class="news-list__text">Part #11 Synopsis Updated!</span>
@@ -100,6 +105,14 @@
                     <a class="news-section__more" href="#">MORE <span aria-hidden="true">►</span></a>
                 </div>
             </div>
+
+            <div class="news-section__bottom-bg" aria-hidden="true">
+                <span class="news-section__bottom-block news-section__bottom-block--left"></span>
+                <span class="news-section__bottom-block news-section__bottom-block--right"></span>
+            </div>
+            <button class="news-section__pagetop" type="button" aria-label="Наверх">
+                <img src="img/logo/arrow_l_w.svg" alt="">
+            </button>
 
             <div class="news-section__cover" aria-hidden="true">
                 <span class="news-section__cover-line"></span>
