@@ -65,3 +65,19 @@ if (hero) {
         requestRender();
     }
 }
+
+const revealSections = document.querySelectorAll('.js-reveal-section');
+
+if (revealSections.length) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+    }, {
+        threshold: 0.28
+    });
+
+    revealSections.forEach((section) => {
+        revealObserver.observe(section);
+    });
+}
