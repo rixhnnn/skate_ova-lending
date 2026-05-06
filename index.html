@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="page">
-        <button class="burger" type="button" aria-label="Открыть меню">
+        <button class="burger" type="button" aria-label="Open menu">
             <span class="burger__lines" aria-hidden="true">
                 <span class="burger__line"></span>
                 <span class="burger__line"></span>
@@ -83,26 +83,26 @@
                             <a class="news-list__link" href="#">
                                 <time class="news-list__date" datetime="2024-11-22">11.22.2024</time>
                                 <span class="news-list__text">SK8 the Infinity EXTRA PART OVA is Coming Soon!</span>
-                                <span class="news-list__arrow" aria-hidden="true">›</span>
+                                <span class="news-list__arrow" aria-hidden="true">&rsaquo;</span>
                             </a>
                         </li>
                         <li class="news-list__item">
                             <a class="news-list__link" href="#">
                                 <time class="news-list__date" datetime="2021-03-29">03.29.2021</time>
                                 <span class="news-list__text">Part #11 Synopsis Updated!</span>
-                                <span class="news-list__arrow" aria-hidden="true">›</span>
+                                <span class="news-list__arrow" aria-hidden="true">&rsaquo;</span>
                             </a>
                         </li>
                         <li class="news-list__item">
                             <a class="news-list__link" href="#">
                                 <time class="news-list__date" datetime="2021-03-22">03.22.2021</time>
                                 <span class="news-list__text">Part #10 Synopsis Updated!</span>
-                                <span class="news-list__arrow" aria-hidden="true">›</span>
+                                <span class="news-list__arrow" aria-hidden="true">&rsaquo;</span>
                             </a>
                         </li>
                     </ul>
 
-                    <a class="news-section__more" href="#">MORE <span aria-hidden="true">►</span></a>
+                    <a class="news-section__more" href="#">MORE <span aria-hidden="true">&#9658;</span></a>
                 </div>
             </div>
 
@@ -110,7 +110,8 @@
                 <span class="news-section__bottom-block news-section__bottom-block--left"></span>
                 <span class="news-section__bottom-block news-section__bottom-block--right"></span>
             </div>
-            <button class="news-section__pagetop" type="button" aria-label="Наверх">
+
+            <button class="news-section__pagetop" type="button" aria-label="Back to top">
                 <img src="img/logo/arrow_l_w.svg" alt="">
             </button>
 
@@ -122,25 +123,56 @@
             </div>
         </section>
 
-        <section class="character-section js-character-section" aria-labelledby="character-title">
-            <div class="character-section__bg" aria-hidden="true">
-                <div class="character-section__bg-side character-section__bg-side--left"></div>
-                <div class="character-section__bg-side character-section__bg-side--right"></div>
-            </div>
+        <footer class="footer">
+            <div class="footer__inner">
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <a class="footer__nav-link footer__nav-link--current" href="#">TOP</a>
+                    <a class="footer__nav-link" href="#">NEWS</a>
+                    <a class="footer__nav-link" href="#">BLU-RAY</a>
+                    <a class="footer__nav-link" href="#">STAFF/CAST</a>
+                    <a class="footer__nav-link" href="#">STREAMING</a>
+                    <a class="footer__nav-link" href="#">INTRODUCTION</a>
+                    <a class="footer__nav-link" href="#">STORY</a>
+                    <a class="footer__nav-link" href="#">CHARACTER</a>
+                    <a class="footer__nav-link" href="#">TRAILER</a>
+                </nav>
 
-            <h2 class="character-section__title" id="character-title" aria-label="CHARACTERS">
-                <span class="character-section__title-letter" aria-hidden="true">C</span>
-                <span class="character-section__title-letter" aria-hidden="true">H</span>
-                <span class="character-section__title-letter" aria-hidden="true">A</span>
-                <span class="character-section__title-letter" aria-hidden="true">R</span>
-                <span class="character-section__title-letter" aria-hidden="true">A</span>
-                <span class="character-section__title-letter" aria-hidden="true">C</span>
-                <span class="character-section__title-letter" aria-hidden="true">T</span>
-                <span class="character-section__title-letter" aria-hidden="true">E</span>
-                <span class="character-section__title-letter" aria-hidden="true">R</span>
-                <span class="character-section__title-letter" aria-hidden="true">S</span>
-            </h2>
-        </section>
+                <div class="footer__side">
+                    <a class="footer__facebook" href="#" aria-label="Facebook">
+                        <img src="img/footer/btn_facebook.png" alt="Facebook">
+                    </a>
+
+                    <div class="footer__share">
+                        <span class="footer__share-label">SHARE</span>
+                        <a class="footer__share-link" href="#" aria-label="Twitter">
+                            <img src="img/footer/s_twitter.svg" alt="">
+                        </a>
+                        <a class="footer__share-link" href="#" aria-label="Facebook">
+                            <img src="img/footer/s_facebook.svg" alt="">
+                        </a>
+                    </div>
+
+                    <p class="footer__site">SK8-ANIME.COM</p>
+                    <a class="footer__studio" href="#" aria-label="bones">
+                        <img src="img/footer/logo_bones.png" alt="bones">
+                    </a>
+                </div>
+
+                <div class="footer__meta">
+                    <p class="footer__policy">
+                        <a href="#">Privacy Policy</a> |
+                        <a href="#">Official Japanese Website</a> |
+                        <a href="#">Aniplex of America</a>
+                    </p>
+                    <p class="footer__copy">&copy;BONES, Hiroko Utsumi/Project SK8</p>
+                </div>
+
+                <a class="footer__banner" href="#">
+                    <span>NEW OVA &amp; TV SERIES SECOND SEASON</span>
+                    <strong>COMING SOON</strong>
+                </a>
+            </div>
+        </footer>
     </div>
 
     <script src="script/main.js"></script>

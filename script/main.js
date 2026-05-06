@@ -66,7 +66,7 @@ if (hero) {
     }
 }
 
-const revealSections = document.querySelectorAll('.js-reveal-section, .js-character-section');
+const revealSections = document.querySelectorAll('.js-reveal-section');
 
 if (revealSections.length) {
     let lastScrollY = window.scrollY;
