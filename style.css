@@ -716,10 +716,11 @@ img {
 .character-section__title {
     position: absolute;
     top: 50%;
-    left: -1.2%;
+    left: 1.8%;
     z-index: 1;
     transform: translateY(-50%);
     writing-mode: vertical-rl;
+    white-space: nowrap;
     color: #ffdf00;
     font-family: Impact, "Arial Black", Arial, sans-serif;
     font-size: 0;
@@ -731,11 +732,11 @@ img {
 .character-section__title-letter {
     display: inline-block;
     opacity: 0;
-    font-size: clamp(74px, 7.2vw, 138px);
-    line-height: 0.78;
+    font-size: clamp(58px, 5.9vw, 112px);
+    line-height: 0.72;
     letter-spacing: 0;
-    transform: translate(-180px, 280px);
-    transition: opacity 0.42s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate(-220px, 420px);
+    transition: opacity 0.3s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .character-section.is-visible .character-section__title-letter {
@@ -744,39 +745,43 @@ img {
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(1) {
-    transition-delay: 0.2s;
+    transition-delay: 0.18s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(2) {
-    transition-delay: 0.3s;
+    transition-delay: 0.24s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(3) {
-    transition-delay: 0.4s;
+    transition-delay: 0.3s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(4) {
-    transition-delay: 0.5s;
+    transition-delay: 0.36s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(5) {
-    transition-delay: 0.6s;
+    transition-delay: 0.42s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(6) {
-    transition-delay: 0.7s;
+    transition-delay: 0.48s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(7) {
-    transition-delay: 0.8s;
+    transition-delay: 0.54s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(8) {
-    transition-delay: 0.9s;
+    transition-delay: 0.6s;
 }
 
 .character-section.is-visible .character-section__title-letter:nth-child(9) {
-    transition-delay: 1s;
+    transition-delay: 0.66s;
+}
+
+.character-section.is-visible .character-section__title-letter:nth-child(10) {
+    transition-delay: 0.72s;
 }
 
 .character-section:not(.is-visible) .character-section__title-letter {
@@ -974,11 +979,12 @@ img {
     }
 
     .character-section__title {
-        left: -5%;
+        top: 50%;
+        left: 2%;
     }
 
     .character-section__title-letter {
-        font-size: 72px;
-        transform: translate(-90px, 180px);
+        font-size: 48px;
+        transform: translate(-120px, 120px);
     }
 }
