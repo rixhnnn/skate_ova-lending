@@ -12,6 +12,7 @@ body {
 }
 
 html:has(body.page-characters),
+html.page-characters-html,
 body.page-characters {
     background: #050042;
 }
@@ -109,12 +110,12 @@ img {
 
 .menu-panel {
     position: fixed;
-    inset: 0 0 auto;
+    inset: 0;
     z-index: 9990;
     display: grid;
     grid-template-columns: 30.6% minmax(0, 1fr);
-    height: calc(100vh + 80px);
-    min-height: calc(100vh + 80px);
+    height: var(--app-height);
+    min-height: var(--app-height);
     background: #050042;
     opacity: 0;
     overflow-y: auto;
@@ -306,8 +307,8 @@ img {
 
 @supports (height: 100dvh) {
     .menu-panel {
-        height: 100dvh;
-        min-height: 100dvh;
+        height: var(--app-height);
+        min-height: var(--app-height);
     }
 }
 
@@ -1960,16 +1961,10 @@ img {
     .menu-panel {
         grid-template-columns: 1fr;
         align-content: space-between;
-        height: calc(var(--app-height) + 96px);
-        min-height: calc(var(--app-height) + 96px);
+        height: var(--app-height);
+        min-height: var(--app-height);
         background: #050042;
-    }
-
-    @supports (height: 100dvh) {
-        .menu-panel {
-            height: calc(100dvh + 96px);
-            min-height: calc(100dvh + 96px);
-        }
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
     .menu-panel__image {
