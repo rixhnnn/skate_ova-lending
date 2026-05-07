@@ -1619,7 +1619,99 @@ img {
     }
 
     .news-section {
+        --news-side-pad: clamp(20px, 4vw, 36px);
+        --news-more-top: clamp(182px, 21vw, 196px);
         margin-top: 0;
+        padding: 64px 0 116px;
+    }
+
+    .news-section__inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: clamp(64px, 10vw, 108px) minmax(0, 1fr);
+        gap: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0 0 0 var(--news-side-pad);
+    }
+
+    .news-section__title {
+        justify-self: start;
+        margin: 0;
+        writing-mode: vertical-rl;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .news-section__title-letter {
+        font-size: clamp(58px, 8.8vw, 92px);
+        line-height: 0.7;
+        transform: translate(-150px, 320px);
+    }
+
+    .news-section__content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        min-width: 0;
+        padding-top: 0;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .news-list {
+        gap: 9px;
+        width: 100%;
+    }
+
+    .news-list__link {
+        grid-template-columns: 176px minmax(0, 1fr) 44px;
+        min-height: 86px;
+        padding-right: 10px;
+    }
+
+    .news-list__date {
+        font-size: clamp(22px, 3.7vw, 32px);
+    }
+
+    .news-list__text {
+        font-size: clamp(15px, 2.3vw, 21px);
+    }
+
+    .news-list__arrow {
+        font-size: 54px;
+    }
+
+    .news-section__more {
+        position: absolute;
+        left: calc(var(--news-side-pad) + clamp(12px, 2.1vw, 22px));
+        top: var(--news-more-top);
+        float: none;
+        display: inline-flex;
+        justify-content: flex-start;
+        margin: 0;
+        opacity: 1;
+        transform: none;
+        transition: none;
+        font-size: clamp(18px, 2.4vw, 22px);
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+
+    .news-section.is-visible .news-section__more {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0s;
+    }
+
+    .news-section__more span {
+        font-size: 10px;
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+
+    .news-section__more:hover span,
+    .news-section__more:focus-visible span {
+        transform: rotate(90deg) translateX(4px);
     }
 
     .footer {
@@ -1933,8 +2025,10 @@ img {
     }
 
     .news-section {
+        --news-side-pad: 18px;
+        --news-more-top: 168px;
         margin-top: 0;
-        padding: 62px 18px 116px;
+        padding: 44px 0 102px;
     }
 
     .news-section::before,
@@ -1944,19 +2038,21 @@ img {
     }
 
     .news-section__inner {
-        display: block;
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
         width: 100%;
+        padding-left: var(--news-side-pad);
     }
 
     .news-section__title {
-        margin-bottom: 24px;
-        writing-mode: horizontal-tb;
+        margin: 0;
+        writing-mode: vertical-rl;
     }
 
     .news-section__title-letter {
-        font-size: 60px;
-        line-height: 0.8;
-        transform: translate(-120px, 120px);
+        font-size: 50px;
+        line-height: 0.7;
+        transform: translate(-96px, 220px);
     }
 
     .news-section__content {
@@ -1964,28 +2060,29 @@ img {
     }
 
     .news-list__link {
-        grid-template-columns: 1fr 34px;
-        row-gap: 12px;
-        min-height: 112px;
-        padding: 14px 8px 14px 12px;
+        grid-template-columns: 1fr 28px;
+        row-gap: 8px;
+        min-height: 78px;
+        padding: 10px 8px 10px 12px;
     }
 
     .news-list__date {
         grid-column: 1 / -1;
-        font-size: 27px;
+        font-size: 22px;
     }
 
     .news-list__text {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .news-list__arrow {
-        font-size: 48px;
+        font-size: 38px;
     }
 
     .news-section__more {
-        margin-top: 22px;
-        font-size: 22px;
+        left: calc(var(--news-side-pad) + 10px);
+        margin: 0;
+        font-size: 18px;
     }
 
     .news-section__pagetop {
