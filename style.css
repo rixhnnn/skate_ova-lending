@@ -1093,13 +1093,13 @@ img {
 
 .characters-section__title {
     position: absolute;
-    top: 8px;
+    top: 56px;
     left: -6px;
     display: block;
     z-index: 2;
     color: #ffdf00;
     font-family: Impact, "Arial Black", Arial, sans-serif;
-    font-size: 82px;
+    font-size: 100px;
     font-weight: 900;
     line-height: 0.78;
     letter-spacing: -0.04em;
@@ -1226,6 +1226,72 @@ img {
     display: none;
 }
 
+.characters-card--reki::after,
+.characters-card--langa::after,
+.characters-card--miya::after,
+.characters-card--shadow::after,
+.characters-card--cherry::after,
+.characters-card--joe::after,
+.characters-card--adam::after,
+.characters-card--kikuchi::after {
+    display: block;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.characters-card--reki::after {
+    background: #ffdf00;
+}
+
+.characters-card--langa::after {
+    background: #79b5db;
+}
+
+.characters-card--miya::after {
+    background: #c8eb2c;
+}
+
+.characters-card--shadow::after {
+    background: #8c72d3;
+}
+
+.characters-card--cherry::after {
+    background: #e589bd;
+}
+
+.characters-card--joe::after {
+    background: #5bc27f;
+}
+
+.characters-card--adam::after {
+    background: #ed3f4a;
+}
+
+.characters-card--kikuchi::after {
+    background: #bfbfbf;
+}
+
+.characters-card--reki:hover::after,
+.characters-card--reki:focus-visible::after,
+.characters-card--langa:hover::after,
+.characters-card--langa:focus-visible::after,
+.characters-card--miya:hover::after,
+.characters-card--miya:focus-visible::after,
+.characters-card--shadow:hover::after,
+.characters-card--shadow:focus-visible::after,
+.characters-card--cherry:hover::after,
+.characters-card--cherry:focus-visible::after,
+.characters-card--joe:hover::after,
+.characters-card--joe:focus-visible::after,
+.characters-card--adam:hover::after,
+.characters-card--adam:focus-visible::after,
+.characters-card--kikuchi:hover::after,
+.characters-card--kikuchi:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
 .characters-section.is-visible .characters-card {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1283,6 +1349,10 @@ img {
     max-width: none;
     object-fit: contain;
     pointer-events: none;
+}
+
+.characters-card--shadow .characters-card__image {
+    left: 12px;
 }
 
 .characters-card__name {
