@@ -112,6 +112,18 @@ if (revealSections.length) {
 const burger = document.querySelector('.burger');
 const menuPanel = document.querySelector('.menu-panel');
 const burgerText = document.querySelector('.burger__text');
+const pageTopButtons = document.querySelectorAll('.js-page-top');
+
+if (pageTopButtons.length) {
+    pageTopButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+}
 
 if (burger && menuPanel && burgerText) {
     const setMenuState = (isOpen) => {
