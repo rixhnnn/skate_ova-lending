@@ -12,6 +12,18 @@ body {
 
 body.is-menu-open {
     overflow: hidden;
+    height: 100vh;
+    background: #050042;
+}
+
+body.is-menu-open .page > :not(.burger):not(.menu-panel) {
+    visibility: hidden;
+}
+
+@supports (height: 100dvh) {
+    body.is-menu-open {
+        height: 100dvh;
+    }
 }
 
 img {
@@ -1937,6 +1949,7 @@ img {
         align-content: space-between;
         height: 100vh;
         min-height: 100vh;
+        background: #050042;
     }
 
     @supports (height: 100dvh) {
