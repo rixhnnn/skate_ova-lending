@@ -136,13 +136,26 @@ if (pageTopButtons.length) {
 }
 
 if (burger && menuPanel && burgerText) {
+    let menuScrollY = 0;
+
     const setMenuState = (isOpen) => {
+        if (isOpen) {
+            menuScrollY = window.scrollY;
+            document.body.style.top = `-${menuScrollY}px`;
+        } else {
+            document.body.style.top = '';
+        }
+
         burger.classList.toggle('is-open', isOpen);
         menuPanel.classList.toggle('is-open', isOpen);
         menuPanel.setAttribute('aria-hidden', String(!isOpen));
         burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
         burgerText.textContent = isOpen ? 'CLOSE' : 'MENU';
         document.body.classList.toggle('is-menu-open', isOpen);
+
+        if (!isOpen) {
+            window.scrollTo(0, menuScrollY);
+        }
     };
 
     burger.addEventListener('click', () => {

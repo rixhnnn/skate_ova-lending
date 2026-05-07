@@ -11,7 +11,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html:has(body.page-characters),
+body.page-characters {
+    background: #050042;
+}
+
+body.page-characters .page {
+    background: #050042;
+}
+
 body.is-menu-open {
+    position: fixed;
+    inset: 0;
+    width: 100%;
     overflow: hidden;
     height: var(--app-height);
     background: #050042;
@@ -97,12 +109,12 @@ img {
 
 .menu-panel {
     position: fixed;
-    inset: 0;
+    inset: 0 0 auto;
     z-index: 9990;
     display: grid;
     grid-template-columns: 30.6% minmax(0, 1fr);
-    height: 100vh;
-    min-height: 100vh;
+    height: calc(100vh + 80px);
+    min-height: calc(100vh + 80px);
     background: #050042;
     opacity: 0;
     overflow-y: auto;
@@ -1948,15 +1960,15 @@ img {
     .menu-panel {
         grid-template-columns: 1fr;
         align-content: space-between;
-        height: var(--app-height);
-        min-height: var(--app-height);
+        height: calc(var(--app-height) + 96px);
+        min-height: calc(var(--app-height) + 96px);
         background: #050042;
     }
 
     @supports (height: 100dvh) {
         .menu-panel {
-            height: 100dvh;
-            min-height: 100dvh;
+            height: calc(100dvh + 96px);
+            min-height: calc(100dvh + 96px);
         }
     }
 
