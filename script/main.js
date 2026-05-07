@@ -5,7 +5,8 @@ if (hero) {
     const layerData = Array.from(layers, (layer) => ({
         element: layer,
         depth: Number(layer.dataset.depth),
-        offsetY: Number(layer.dataset.offsetY || 0)
+        offsetY: Number(layer.dataset.offsetY || 0),
+        mobileScale: layer.classList.contains('hero__character--miya') || layer.classList.contains('hero__shadow') ? 1.12 : 1
     }));
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const narrowQuery = window.matchMedia('(max-width: 1000px)');
@@ -27,11 +28,12 @@ if (hero) {
     const render = () => {
         current += (target - current) * 0.055;
 
-        layerData.forEach(({ element, depth, offsetY }) => {
+        layerData.forEach(({ element, depth, offsetY, mobileScale }) => {
             const y = offsetY + current * depth * scrollPower;
+            const scale = narrowQuery.matches && mobileScale !== 1 ? ` scale(${mobileScale})` : '';
 
             element.style.transform = narrowQuery.matches
-                ? `translateY(${y}px)`
+                ? `translateY(${y}px)${scale}`
                 : `translate3d(0, ${y}px, 0)`;
         });
 

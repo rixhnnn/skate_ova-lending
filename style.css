@@ -273,7 +273,7 @@ img {
     justify-content: center;
     min-height: 100vh;
     background: #3f2095;
-    overflow: hidden;
+    overflow: visible;
     padding-top: 24px;
 }
 
@@ -344,7 +344,7 @@ img {
     position: absolute;
     left: 49%;
     bottom: 2.2%;
-    z-index: 30;
+    z-index: 80;
     width: 25%;
     height: auto;
     transform: translateX(-50%) rotate(-4deg);
@@ -1403,6 +1403,10 @@ img {
     pointer-events: none;
 }
 
+.hero__mobile-logo {
+    display: none;
+}
+
 .characters-card--shadow .characters-card__image {
     left: 12px;
 }
@@ -1539,6 +1543,12 @@ img {
 }
 
 @media (max-width: 900px) {
+    .hero {
+        position: relative;
+        z-index: 3;
+        overflow: visible;
+    }
+
     .burger {
         top: 12px;
         right: 14px;
@@ -1570,8 +1580,42 @@ img {
         font-size: 18px;
     }
 
+    .hero__logo {
+        display: none;
+    }
+
+    .hero__mobile-logo {
+        position: absolute;
+        left: 50%;
+        bottom: -46px;
+        z-index: 999;
+        display: block;
+        width: clamp(168px, 48vw, 320px);
+        height: auto;
+        transform: translateX(-50%) rotate(-4deg);
+        pointer-events: none;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
     .announcement {
         padding-bottom: 0;
+    }
+
+    .announcement__lead,
+    .announcement__title {
+        white-space: nowrap;
+    }
+
+    .announcement__lead {
+        font-size: clamp(14px, 3.6vw, 32px);
+    }
+
+    .announcement__title {
+        font-size: clamp(29px, 8.7vw, 78px);
+        letter-spacing: 0.08em;
     }
 
     .news-section {
@@ -1818,15 +1862,23 @@ img {
 
     .hero {
         align-items: stretch;
+        justify-content: center;
+        min-height: auto;
+        margin-bottom: 58px;
+        padding-top: 0;
+        position: relative;
+        z-index: 3;
     }
 
     .hero__wrapper {
-        width: 100vw;
+        width: 118vw;
+        margin-left: -9vw;
+        overflow: hidden;
+        contain: layout;
     }
 
     .hero__logo {
-        bottom: 2.8%;
-        width: 58%;
+        display: none;
     }
 
     .hero .facebook-ticker {
@@ -1867,12 +1919,12 @@ img {
     }
 
     .announcement {
-        padding: 18px 18px 0;
+        margin-top: -2px;
+        padding: 18px 10px 0;
     }
 
     .announcement__title {
         margin-top: 10px;
-        font-size: clamp(32px, 11vw, 52px);
     }
 
     .announcement__button {
@@ -2061,4 +2113,34 @@ img {
         width: 74px;
     }
 
+}
+
+@media (max-width: 360px) {
+    .hero__wrapper {
+        width: 126vw;
+        margin-left: -13vw;
+    }
+
+    .hero__logo {
+        display: none;
+    }
+
+    .hero__mobile-logo {
+        bottom: -36px;
+        width: clamp(154px, 52vw, 190px);
+    }
+
+    .announcement {
+        padding-top: 20px;
+    }
+
+    .announcement__lead {
+        font-size: 15px;
+    }
+
+    .announcement__title {
+        margin-top: 10px;
+        font-size: 34px;
+        letter-spacing: 0.08em;
+    }
 }
