@@ -1,5 +1,6 @@
 html {
     background: #3f2095;
+    --app-height: 100vh;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 
 body.is-menu-open {
     overflow: hidden;
-    height: 100vh;
+    height: var(--app-height);
     background: #050042;
 }
 
@@ -1947,8 +1948,8 @@ img {
     .menu-panel {
         grid-template-columns: 1fr;
         align-content: space-between;
-        height: 100vh;
-        min-height: 100vh;
+        height: var(--app-height);
+        min-height: var(--app-height);
         background: #050042;
     }
 

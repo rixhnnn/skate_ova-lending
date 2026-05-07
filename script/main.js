@@ -116,6 +116,14 @@ const menuPanel = document.querySelector('.menu-panel');
 const burgerText = document.querySelector('.burger__text');
 const pageTopButtons = document.querySelectorAll('.js-page-top');
 
+const setAppHeight = () => {
+    document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+};
+
+setAppHeight();
+window.addEventListener('resize', setAppHeight);
+window.addEventListener('orientationchange', setAppHeight);
+
 if (pageTopButtons.length) {
     pageTopButtons.forEach((button) => {
         button.addEventListener('click', () => {
