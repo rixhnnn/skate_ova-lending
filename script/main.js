@@ -108,3 +108,34 @@ if (revealSections.length) {
     window.addEventListener('resize', requestRevealUpdate);
     requestRevealUpdate();
 }
+
+const burger = document.querySelector('.burger');
+const menuPanel = document.querySelector('.menu-panel');
+const burgerText = document.querySelector('.burger__text');
+
+if (burger && menuPanel && burgerText) {
+    const setMenuState = (isOpen) => {
+        burger.classList.toggle('is-open', isOpen);
+        menuPanel.classList.toggle('is-open', isOpen);
+        menuPanel.setAttribute('aria-hidden', String(!isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        burgerText.textContent = isOpen ? 'CLOSE' : 'MENU';
+        document.body.classList.toggle('is-menu-open', isOpen);
+    };
+
+    burger.addEventListener('click', () => {
+        setMenuState(!menuPanel.classList.contains('is-open'));
+    });
+
+    menuPanel.addEventListener('click', (event) => {
+        if (event.target.closest('.menu-panel__link')) {
+            setMenuState(false);
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuPanel.classList.contains('is-open')) {
+            setMenuState(false);
+        }
+    });
+}
