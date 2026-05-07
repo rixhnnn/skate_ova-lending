@@ -88,6 +88,8 @@ img {
     z-index: 9990;
     display: grid;
     grid-template-columns: 30.6% minmax(0, 1fr);
+    height: 100vh;
+    min-height: 100vh;
     background: #050042;
     opacity: 0;
     overflow-y: auto;
@@ -275,6 +277,13 @@ img {
     background: #3f2095;
     overflow: visible;
     padding-top: 24px;
+}
+
+@supports (height: 100dvh) {
+    .menu-panel {
+        height: 100dvh;
+        min-height: 100dvh;
+    }
 }
 
 .hero__wrapper {
@@ -1925,6 +1934,16 @@ img {
 
     .menu-panel {
         grid-template-columns: 1fr;
+        align-content: space-between;
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    @supports (height: 100dvh) {
+        .menu-panel {
+            height: 100dvh;
+            min-height: 100dvh;
+        }
     }
 
     .menu-panel__image {
@@ -1939,6 +1958,7 @@ img {
 
     .menu-panel__social {
         position: static;
+        align-self: end;
         justify-items: start;
         gap: 22px;
         padding: 0 28px 26px;
